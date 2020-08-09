@@ -6,11 +6,14 @@ namespace Week2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Exercise1();
-            Exercise2();
-            Exercise3();
-            Exercise4();
+            //Exercise1();
+            //Exercise2();
+            //Exercise3();
+            //Exercise4();
+            //Exercise5();
+            //Exercise6();
+            //Exercise7() -> TODO
+            Exercise8();
         }
 
         public static void Exercise1() 
@@ -90,8 +93,49 @@ namespace Week2
                     i--;
                 }     
             }
+            Console.WriteLine();
         }
 
+        public static void Exercise5() 
+        {
+            for (int i = 1; i < 21; i++) {
+
+                Console.Write(Math.Pow(i,3) + " ");
+            }
+            Console.WriteLine();
+        }
+
+        public static void Exercise6()
+        {
+            double sum = 0;
+            for (double i = 0; i <= 20; i++)
+            {
+                sum += 1 / (i + 1);
+            }
+            Console.WriteLine($"Sum is: {sum}");
+        }
+
+        public static void Exercise8()
+        {
+            Console.WriteLine("Enter some word: ");
+            string word = Console.ReadLine();
+            string result ="";
+
+            for (int i = word.Length -1 ; i >= 0; i--)
+            {
+                result = String.Concat(result, word[i]);
+            }
+            Console.WriteLine(result);
+        }
+
+        public static void Exercise9()
+        {
+            int number;
+            Console.Write("Enter some numerical value (integer): ");
+            number = int.Parse(Console.ReadLine());
+
+
+        }
 
     }
 }
