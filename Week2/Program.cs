@@ -6,14 +6,16 @@ namespace Week2
     {
         static void Main(string[] args)
         {
-            //Exercise1();
-            //Exercise2();
-            //Exercise3();
-            //Exercise4();
-            //Exercise5();
-            //Exercise6();
-            //Exercise7() -> TODO
+            Exercise1();
+            Exercise2();
+            Exercise3();
+            Exercise4();
+            Exercise5();
+            Exercise6();
+            Exercise7();
             Exercise8();
+            Exercise9();
+            Exercise10();
         }
 
         public static void Exercise1() 
@@ -115,6 +117,38 @@ namespace Week2
             Console.WriteLine($"Sum is: {sum}");
         }
 
+        public static void Exercise7()
+        {
+            int value;
+            Console.Write("Enter some numerical value (integer): ");
+            value = int.Parse(Console.ReadLine());
+
+            int space = value - 1;
+
+            for (int i = 0; i < value; i++)
+            {
+                for (int j = 0; j < space; j++)
+                    Console.Write(" ");
+                for (int j = 0; j <= i; j++)
+                    Console.Write("* ");
+
+                Console.Write("\n");
+                space--;
+            }
+
+            space = 1;
+
+            for (int i = value - 1; i > 0; i--)
+            {
+                for (int j = 0; j < space; j++)
+                    Console.Write(" ");
+                for (int j = 0; j < i; j++)
+                    Console.Write("* ");
+                Console.Write("\n");
+                space++;
+            }
+        }
+
         public static void Exercise8()
         {
             Console.WriteLine("Enter some word: ");
@@ -130,12 +164,65 @@ namespace Week2
 
         public static void Exercise9()
         {
-            int number;
+            int decimalValue;
             Console.Write("Enter some numerical value (integer): ");
-            number = int.Parse(Console.ReadLine());
+            decimalValue = int.Parse(Console.ReadLine());
+            int tempDecimalValue = decimalValue;
+            int place = 1;
+            int rem = 1;
+            int binary = 0;
 
+            while (tempDecimalValue > 0)
+            {
+                rem = tempDecimalValue % 2;
+                binary += (rem * place);
+                tempDecimalValue /= 2;
+                place *= 10;
+            }
 
+            Console.WriteLine($"({decimalValue})DEC=({binary})BIN");
         }
 
+        public static void Exercise10() 
+        {
+           
+            int num1;
+            int num2;
+            Console.Write($"First number= ");
+            num1 = int.Parse(Console.ReadLine());
+            Console.Write($"Second number= ");
+            num2 = int.Parse(Console.ReadLine());
+
+            int greaterNumber, lesserNumber;
+            int temp = 0;
+
+            if (num1 > num2)
+            {
+                greaterNumber = num1;
+                lesserNumber = num2;
+            }
+            else
+            {
+                greaterNumber = num2;
+                lesserNumber = num1;
+            }
+            
+
+            while (lesserNumber > 0)
+            {
+                if (temp > lesserNumber)
+                {
+                    greaterNumber = temp;
+                }
+                else
+                {
+                    greaterNumber = lesserNumber;
+                    lesserNumber = temp;
+                }
+            }
+            temp = (num1 / greaterNumber) * num2;
+            Console.WriteLine($"NWW= {temp}");
+            
+        }
     }
 }
